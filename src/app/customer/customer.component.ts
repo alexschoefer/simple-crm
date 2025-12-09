@@ -1,0 +1,29 @@
+import { Component, OnInit } from '@angular/core';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+
+@Component({
+  selector: 'app-customer',
+  standalone: true,
+  imports: [MatIconModule,MatButtonModule, MatTooltipModule],
+  templateUrl: './customer.component.html',
+  styleUrl: './customer.component.scss'
+})
+export class CustomerComponent implements OnInit {
+
+  constructor(public dialog: MatDialog) {
+
+  }
+
+  ngOnInit(): void {
+    
+  }
+
+  openDialog() {
+    this.dialog.open(DialogAddUserComponent);
+  }
+
+}
