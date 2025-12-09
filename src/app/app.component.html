@@ -4,8 +4,8 @@
       Auto-resizing sidenav
     </div>
     <ul class="menu-items">
-      <li><mat-icon>dashboard</mat-icon>Dashboard</li>
-      <li><mat-icon>groups</mat-icon> Customer</li>
+      <li routerLink="/"><mat-icon>dashboard</mat-icon>Dashboard</li>
+      <li routerLink="/customer"><mat-icon>groups</mat-icon> Customer</li>
     </ul>
   </mat-drawer>
   <div class="example-sidenav-content">
@@ -15,6 +15,9 @@
         <span>Custom Toolbar</span>
       </mat-toolbar-row>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <div class="router-container">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
 </mat-drawer-container>

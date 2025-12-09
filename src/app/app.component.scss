@@ -40,7 +40,16 @@ mat-toolbar, mat-toolbar-row {
         gap: 16px;
 
         &:hover {
-            background-color: rgba(0, 0, 0, 0.15)
+            background-color: rgba(0, 0, 0, 0.04)
+        }
+
+        &:focus {
+            outline: none;
         }
     }
+}
+
+.router-container {
+    padding-left: 56px;
+    padding-top: 16px;
 }

@@ -5,5 +5,6 @@ import { CustomerComponent } from './customer/customer.component';
 
 export const routes: Routes = [
     { path: '', component: DashboardComponent},
+    { path: 'dashboard', component: DashboardComponent},
     { path: 'customer', component: CustomerComponent}
 ];
