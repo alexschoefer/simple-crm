@@ -1,0 +1,18 @@
+.customer-informations, .customer-adress {
+    display: flex;
+    gap: 20px;
+}
+
+.flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.full-width {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}

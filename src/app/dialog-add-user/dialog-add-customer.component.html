@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>Add new logistic customer</h2>
+<mat-dialog-content>
+    <div class="customer-informations">
+        <mat-form-field appearance="outline">
+            <mat-label>Customer Number</mat-label>
+            <input [(ngModel)]="customer.customerNumber" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Customer Name</mat-label>
+            <input [(ngModel)]="customer.customerName" matInput>
+        </mat-form-field>
+    </div>
+    <div class="flex-direction-column">
+        <div class="customer-adress">
+            <mat-form-field appearance="outline">
+                <mat-label>Street + House No.</mat-label>
+                <input [(ngModel)]="customer.adress" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>ZipCode</mat-label>
+                <input [(ngModel)]="customer.zipCode" matInput>
+            </mat-form-field>
+        </div>
+        <div class="customer-adress">
+            <mat-form-field appearance="outline">
+                <mat-label>Location</mat-label>
+                <input [(ngModel)]="customer.location" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Country</mat-label>
+                <input [(ngModel)]="customer.country" matInput>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="full-width">
+        <mat-form-field appearance="outline">
+            <mat-label>Go Live</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button matButton>Cancel</button>
+    <button matButton cdkFocusInitial (click)="saveCustomer()">Save</button>
+</mat-dialog-actions>
