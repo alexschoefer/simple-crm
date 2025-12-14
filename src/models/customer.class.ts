@@ -5,7 +5,7 @@ export class Customer {
     zipCode: string;
     location: string;
     country: string;
-    goLive: number;
+    goLive: Date;
 
 
     constructor(obj?:any) {
