@@ -44,47 +44,64 @@
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
             </div>
-            <div>
+
+            <div class="full-width mg-bottom-8">
+                <!-- Status Quo-->
+                <div>
+                    <h2>Project Status Quo</h2>
+                    <mat-radio-group [(ngModel)]="customer.projectStatus">
+                        <mat-radio-button *ngFor="let status of projectStatus" [value]="status">
+                            {{ status }}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+
+            <div class="full-width">
+                <h2>Project Manager</h2>
                 <mat-form-field>
                     <mat-label>Internal project manager</mat-label>
-                    <mat-select>
-                      @for (pm of projectManager; track pm) {
+                    <mat-select [(ngModel)]="customer.projectManager">
+                        @for (pm of projectManager; track pm) {
                         <mat-option [value]="pm.value">{{pm.viewValue}}</mat-option>
-                      }
+                        }
                     </mat-select>
-                  </mat-form-field>
+                </mat-form-field>
             </div>
         </div>
- 
 
-
-        <div class="full-width">
+        <div class="full-width mg-bottom-8">
             <!-- Logistic Tasks -->
             <div>
-                <h2>Logistic Tasks</h2>
-                <mat-selection-list #tasks>
-                    @for (tasks of logisticalTasks; track tasks) {
-                    <mat-list-option>{{tasks}}</mat-list-option>
-                    }
-                </mat-selection-list>
+                <h2>Logistical Tasks</h2>
+                <mat-chip-listbox multiple [(ngModel)]="selectedTasks">
+                    <mat-chip-option *ngFor="let task of logisticalTasks" [value]="task">
+                        {{ task }}
+                    </mat-chip-option>
+                </mat-chip-listbox>
             </div>
+        </div>
+        <div class="full-width mg-bottom-8">
             <!-- Logistic Sector -->
             <div>
                 <h2>Logistic Sector</h2>
-                <mat-selection-list #sector [multiple]="false">
-                    @for (sector of logisticsSector; track sector) {
-                    <mat-list-option [value]="sector">{{sector}}</mat-list-option>
-                    }
-                </mat-selection-list>
+                <mat-radio-group [(ngModel)]="customer.logisticSector">
+                    <mat-radio-button *ngFor="let sector of logisticsSector" [value]="sector">
+                        {{ sector }}
+                    </mat-radio-button>
+                </mat-radio-group>
             </div>
-
         </div>
 
 
     </mat-dialog-content>
 
-    <mat-dialog-actions>
-        <button matButton (click)="closeAddCustomerDialog()">Cancel</button>
-        <button matButton cdkFocusInitial (click)="saveCustomer()">Save</button>
-    </mat-dialog-actions>
+    <div class="dialog-add-customer-btn-container">
+        <mat-dialog-actions>
+            <button mat-raised-button color="primary" (click)="closeAddCustomerDialog()">Cancel</button>
+            <button mat-raised-button color="primary"  (click)="saveCustomer()" type="submit">
+                Save
+            </button>
+        </mat-dialog-actions>
+    </div>
 </div>
