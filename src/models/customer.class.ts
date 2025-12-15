@@ -6,6 +6,9 @@ export class Customer {
     location: string;
     country: string;
     goLive: Date;
+    logisticSector: string;
+    logisticalTasks: string[];
+    projectManager: string;
 
 
     constructor(obj?:any) {
@@ -16,5 +19,8 @@ export class Customer {
         this.location = obj ? obj.location: '';
         this.country = obj ? obj.country: '';
         this.goLive = obj ? obj.goLive: '';
+        this.logisticSector = obj ? obj.logisticSector: '';
+        this.logisticalTasks = obj ? obj.logisticalTasks: [];
+        this.projectManager = obj ? obj.projectManager: '';
     }
 }
