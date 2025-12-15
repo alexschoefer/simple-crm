@@ -52,10 +52,17 @@ mat-toolbar, mat-toolbar-row {
 
 .router-container {
     padding-left: 56px;
+    padding-right: 56px;
     padding-top: 16px;
 }
 
 .logo {
     height: 48px;
     width: 48px;
+}
+
+.menu-header-container {
+    display: flex;
+    align-items: center;
+    gap: 36px;
 }

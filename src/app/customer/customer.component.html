@@ -1,12 +1,27 @@
-<mat-card>
-  <table>
-    <tbody>
-      <tr></tr>
-    </tbody>
-  </table>
-</mat-card>
+<div class="customer-grid">
+  <mat-card class="customer-card" appearance="outlined" *ngFor="let customer of customers$ | async">
+    <div class="customer-main-information">
+      <mat-card-title class="customer-name">{{ customer.customerName }} - {{customer.customerNumber}}</mat-card-title>
+      <img class="customer-img" mat-card-sm-image src="./../../assets/img/customer.png">
+    </div>
+    <mat-card-content>
+      <div class="customer-logistic-overview">
+        <div class="row">
+          <span class="word-hightlight">Logistic Sector:</span><span> {{ customer.logisticSector }}</span>
+        </div>
+        <div class="row">
+          <span class="word-hightlight">Internal Project Manager:</span><span> {{ customer.projectManager }}</span>
+        </div>
+        <div class="row">
+          <span class="word-hightlight">Logistical Tasks:</span><span> {{ customer.logisticalTasks.join(', ') }}</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
 
 
 <button (click)="openDialog()" class="add-customer-btn" mat-fab color="primary" matTooltip="Add new customer">
   <mat-icon>add</mat-icon>
 </button>
+

@@ -44,6 +44,19 @@
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
             </div>
+
+            <div class="full-width mg-bottom-8">
+                <!-- Status Quo-->
+                <div>
+                    <h2>Project Status Quo</h2>
+                    <mat-radio-group [(ngModel)]="customer.projectStatus">
+                        <mat-radio-button *ngFor="let status of projectStatus" [value]="status">
+                            {{ status }}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+
             <div class="full-width">
                 <h2>Project Manager</h2>
                 <mat-form-field>

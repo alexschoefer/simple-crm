@@ -9,6 +9,7 @@ export class Customer {
     logisticSector: string;
     logisticalTasks: string[];
     projectManager: string;
+    projectStatus: string;
 
 
     constructor(obj?:any) {
@@ -22,5 +23,6 @@ export class Customer {
         this.logisticSector = obj ? obj.logisticSector: '';
         this.logisticalTasks = obj ? obj.logisticalTasks: [];
         this.projectManager = obj ? obj.projectManager: '';
+        this.projectStatus = obj ? obj.projectStatus: ''
     }
 }
