@@ -7,6 +7,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 
+import { Firestore, collectionData, collection, doc, onSnapshot, addDoc, updateDoc, deleteDoc, orderBy, limit, query } from '@angular/fire/firestore';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -15,5 +17,6 @@ import {MatDialogModule} from '@angular/material/dialog';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
   title = 'simple-crm';
 }
