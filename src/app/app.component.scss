@@ -18,6 +18,7 @@
     min-height: 56px;
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 
 mat-toolbar, mat-toolbar-row {
@@ -52,4 +53,9 @@ mat-toolbar, mat-toolbar-row {
 .router-container {
     padding-left: 56px;
     padding-top: 16px;
+}
+
+.logo {
+    height: 48px;
+    width: 48px;
 }
