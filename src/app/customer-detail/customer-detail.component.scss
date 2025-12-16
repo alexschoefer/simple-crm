@@ -1,5 +1,43 @@
 .customer-detail-header {
-    min-height: 250px;
+    min-height: 100px;
     background-color: chocolate;
-    color: white; 
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 36px;
+    
+    .customer-name {
+        font-size: 36px;
+    }
+}
+
+mat-card {
+    padding-left: 32px;
+    min-height: 200px;
+    background-color: rgba(94, 216, 235, 0.4);
+}
+
+.address-information-container {
+    display: flex;
+    gap: 80px;
+    position: relative;
+
+    .material-icons {
+        position: absolute;
+        right: 56px;
+        cursor: pointer;
+    }
+
+    .address-information {
+        display: flex;
+        gap: 48px;
+        font-size: 18px;
+    }
+
+    mat-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
 }
