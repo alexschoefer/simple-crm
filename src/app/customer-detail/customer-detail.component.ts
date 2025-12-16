@@ -4,11 +4,12 @@ import { Firestore, doc, docData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-customer-detail',
   standalone: true,
-  imports: [MatCardModule, CommonModule],
+  imports: [MatCardModule, CommonModule, MatMenuModule],
   templateUrl: './customer-detail.component.html',
   styleUrl: './customer-detail.component.scss'
 })
@@ -27,5 +28,9 @@ export class CustomerDetailComponent implements OnInit {
     const customerRef = doc(this.firestore, 'customers', id);
     //holt die Daten als Observerable (docData = liest das Dokument, liefert ein Observerable, gibt nur den Inhalt zurück)
     this.customer$ = docData(customerRef, { idField: 'id' });
+  }
+
+  openEditAdressDialog() {
+
   }
 }

@@ -5,7 +5,7 @@
     </div>
 </mat-card>
 
-<mat-card *ngIf="customer$ | async as customer">
+<mat-card *ngIf="customer$ | async as customer" >
     <mat-card-header>
         <mat-card-title>Address Information</mat-card-title>
     </mat-card-header>
@@ -15,9 +15,12 @@
             <div class="address-information">{{customer.zipCode}} {{customer.location}}</div>
             <div class="address-information">{{customer.country}}</div>
         </mat-card-content>
-        <span class="material-icons">
+        <button class="material-icons" [matMenuTriggerFor]="addressMenu"(click)="openEditAdressDialog()">
             edit
-        </span>
+        </button>
+        <mat-menu #addressMenu="matMenu">
+            <button mat-menu-item>Edit Adress</button>
+          </mat-menu>
     </div>
 
     <!-- Menu - Edit Button -->
