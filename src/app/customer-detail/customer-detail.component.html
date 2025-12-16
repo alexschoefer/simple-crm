@@ -1,13 +1,41 @@
-<mat-card class="customer-detail-header">
+<mat-card class="customer-detail-header" *ngIf="customer$ | async as customer">
     <!-- Profilbild: height/width: 80px / border-radius: 100% -->
+    <div>
+        <mat-card-title class="customer-name">{{ customer.customerName }} - {{customer.customerNumber}}</mat-card-title>
+    </div>
 </mat-card>
 
-<mat-card>
+<mat-card *ngIf="customer$ | async as customer">
     <mat-card-header>
-        <mat-card-title>Address</mat-card-title>
+        <mat-card-title>Address Information</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
-        <!-- Inhalt -->
-    </mat-card-content>
+    <div class="address-information-container">
+        <mat-card-content>
+            <div class="address-information">{{customer.adress}}</div>
+            <div class="address-information">{{customer.zipCode}} {{customer.location}}</div>
+            <div class="address-information">{{customer.country}}</div>
+        </mat-card-content>
+        <span class="material-icons">
+            edit
+        </span>
+    </div>
+
     <!-- Menu - Edit Button -->
+</mat-card>
+
+<mat-card *ngIf="customer$ | async as customer">
+    <mat-card-header>
+        <mat-card-title>Internal Informations</mat-card-title>
+    </mat-card-header>
+    <div class="address-information-container">
+        <mat-card-content>
+            <div class="address-information">{{customer.projectManager}}</div>
+            <div class="address-information">{{customer.projecStatus}}</div>
+            <div class="address-information">{{customer.logisticSector}}</div>
+            <div class="address-information">{{customer.logisticalTasks}}</div>
+        </mat-card-content>
+        <span class="material-icons">
+            edit
+        </span>
+    </div>
 </mat-card>
