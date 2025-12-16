@@ -1,5 +1,5 @@
 <div class="customer-grid">
-  <mat-card class="customer-card" appearance="outlined" *ngFor="let customer of customers$ | async">
+  <mat-card class="customer-card" appearance="outlined" *ngFor="let customer of customers$ | async" [routerLink]="['/customer/' + customer.id]">
     <div class="customer-main-information">
       <mat-card-title class="customer-name">{{ customer.customerName }} - {{customer.customerNumber}}</mat-card-title>
       <img class="customer-img" mat-card-sm-image src="./../../assets/img/customer.png">

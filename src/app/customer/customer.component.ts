@@ -8,11 +8,12 @@ import { MatCardModule } from '@angular/material/card';
 import { Firestore, collectionData, collection, doc, onSnapshot, addDoc, updateDoc, deleteDoc, orderBy, limit, query, Timestamp } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-customer',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, MatTooltipModule, MatCardModule, CommonModule],
+  imports: [MatIconModule, MatButtonModule, MatTooltipModule, MatCardModule, CommonModule, RouterLink],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.scss'
 })
@@ -29,6 +30,7 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit(): void {
     const customersRef = collection(this.firestore, 'customers');
+    //holt parallel die ID
     this.customers$ = collectionData(customersRef, { idField: 'id' });
   }
   
