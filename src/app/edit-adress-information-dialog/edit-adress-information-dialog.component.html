@@ -1,1 +1,38 @@
-<p>edit-adress-information-dialog works!</p>
+<div class="dialog-content">
+    <h1 mat-dialog-title>Adress information of our logistic customer</h1>
+    <mat-dialog-content>
+        <div>
+            <div class="flex-direction-column">
+                <div class="customer-adress">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Street + House No.</mat-label>
+                        <input [(ngModel)]="customer.adress" matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>ZipCode</mat-label>
+                        <input [(ngModel)]="customer.zipCode" matInput>
+                    </mat-form-field>
+                </div>
+                <div class="customer-adress">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Location</mat-label>
+                        <input [(ngModel)]="customer.location" matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Country</mat-label>
+                        <input [(ngModel)]="customer.country" matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+
+    <div class="dialog-add-customer-btn-container">
+        <mat-dialog-actions>
+            <button mat-raised-button color="primary" (click)="closeAddCustomerDialog()">Cancel</button>
+            <button mat-raised-button color="primary"  (click)="saveChanges()" type="submit">
+                Save
+            </button>
+        </mat-dialog-actions>
+    </div>
+</div>

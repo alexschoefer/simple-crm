@@ -11,15 +11,15 @@
     </mat-card-header>
     <div class="address-information-container">
         <mat-card-content>
-            <div class="address-information">{{customer.adress}}</div>
-            <div class="address-information">{{customer.zipCode}} {{customer.location}}</div>
-            <div class="address-information">{{customer.country}}</div>
+            <div class="address-information">Street + House No.: {{customer.adress}}</div>
+            <div class="address-information">ZipCode: {{customer.zipCode}} {{customer.location}}</div>
+            <div class="address-information">Country: {{customer.country}}</div>
         </mat-card-content>
-        <button class="material-icons" [matMenuTriggerFor]="addressMenu"(click)="openEditAdressDialog()">
+        <button class="material-icons" [matMenuTriggerFor]="addressMenu">
             edit
         </button>
         <mat-menu #addressMenu="matMenu">
-            <button mat-menu-item>Edit Adress</button>
+            <button mat-menu-item (click)="openEditAdressDialog()">Edit Adress</button>
           </mat-menu>
     </div>
 
@@ -32,13 +32,16 @@
     </mat-card-header>
     <div class="address-information-container">
         <mat-card-content>
-            <div class="address-information">{{customer.projectManager}}</div>
-            <div class="address-information">{{customer.projecStatus}}</div>
-            <div class="address-information">{{customer.logisticSector}}</div>
-            <div class="address-information">{{customer.logisticalTasks}}</div>
+            <div class="address-information">Internal Projectmanager: {{customer.projectManager}}</div>
+            <div class="address-information">Project Status: {{customer.projectStatus}}</div>
+            <div class="address-information">Logistic Sector: {{customer.logisticSector}}</div>
+            <div class="address-information">Logistic Task: {{customer.logisticalTasks}}</div>
         </mat-card-content>
-        <span class="material-icons">
+        <button class="material-icons" [matMenuTriggerFor]="addressMenu">
             edit
-        </span>
+        </button>
+        <mat-menu #addressMenu="matMenu">
+            <button mat-menu-item (click)="openEditInternalInformationDialog()">Edit Adress</button>
+          </mat-menu>
     </div>
 </mat-card>

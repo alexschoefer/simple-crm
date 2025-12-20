@@ -5,11 +5,16 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { EditAdressInformationDialogComponent } from '../edit-adress-information-dialog/edit-adress-information-dialog.component';
+import { EditInternalInformationDialogComponent } from '../edit-internal-information-dialog/edit-internal-information-dialog.component';
+import { Customer } from '../../models/customer.class';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-customer-detail',
   standalone: true,
-  imports: [MatCardModule, CommonModule, MatMenuModule],
+  imports: [MatCardModule, CommonModule, MatMenuModule, MatDialogModule],
   templateUrl: './customer-detail.component.html',
   styleUrl: './customer-detail.component.scss'
 })
@@ -18,7 +23,7 @@ export class CustomerDetailComponent implements OnInit {
   customer$!: Observable<any>;
   firestore = inject(Firestore);
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, public dialog: MatDialog) {}
 
   //wird aufgerufen, wenn Componente initalisiert wird
   ngOnInit(): void {
@@ -30,7 +35,15 @@ export class CustomerDetailComponent implements OnInit {
     this.customer$ = docData(customerRef, { idField: 'id' });
   }
 
-  openEditAdressDialog() {
-
+  async openEditAdressDialog() {
+    const customerRef = doc(this.firestore, 'customers', this.route.snapshot.paramMap.get('id')!);
+    const customerData = await firstValueFrom(docData(customerRef));
+    this.dialog.open(EditAdressInformationDialogComponent, {
+      data: customerData
+    });
   }
+
+    openEditInternalInformationDialog() {
+      this.dialog.open(EditInternalInformationDialogComponent);
+    }
 }
