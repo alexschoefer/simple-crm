@@ -37,13 +37,20 @@ export class CustomerDetailComponent implements OnInit {
 
   async openEditAdressDialog() {
     const customerRef = doc(this.firestore, 'customers', this.route.snapshot.paramMap.get('id')!);
-    const customerData = await firstValueFrom(docData(customerRef));
+    const customerData = await firstValueFrom(
+      docData(customerRef, { idField: 'id' })
+    );
+    
     this.dialog.open(EditAdressInformationDialogComponent, {
       data: customerData
     });
   }
 
-    openEditInternalInformationDialog() {
-      this.dialog.open(EditInternalInformationDialogComponent);
-    }
+  async openEditInternalInformationDialog() {
+    const customer = await firstValueFrom(this.customer$);
+  
+    this.dialog.open(EditInternalInformationDialogComponent, {
+      data: customer
+    });
+  }
 }

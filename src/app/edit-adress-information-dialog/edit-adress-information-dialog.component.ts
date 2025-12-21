@@ -1,7 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Firestore, collectionData, collection, doc, onSnapshot, addDoc, updateDoc, deleteDoc, orderBy, limit, query, Timestamp, docData } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
